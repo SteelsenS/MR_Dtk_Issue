@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer3.MembershipReboot", "IdentityServer3.MembershipReboot\IdentityServer3.MembershipReboot.csproj", "{9EB9F5C7-49E1-440B-923F-BB842D9436D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{253839FD-D35B-4509-83AA-DA976D9BE235}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console Resource Owner Flow with UserInfo", "ConsoleResourceOwnerWithUserInfo\Console Resource Owner Flow with UserInfo.csproj", "{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}"
+	ProjectSection(ProjectDependencies) = postProject
+		{590A121B-82AD-49EC-B9F7-0CD36347A334} = {590A121B-82AD-49EC-B9F7-0CD36347A334}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MR_Config", "MR_Config\MR_Config.csproj", "{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdSrv", "IdSrv\IdSrv.csproj", "{590A121B-82AD-49EC-B9F7-0CD36347A334}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AzureWebSites|Any CPU = AzureWebSites|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.AzureWebSites|Any CPU.ActiveCfg = AzureWebSites|Any CPU
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.AzureWebSites|Any CPU.Build.0 = AzureWebSites|Any CPU
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB9F5C7-49E1-440B-923F-BB842D9436D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9EABBE-8F71-4DBF-BD98-9EA80E6F7759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB7D0E4-8A3A-443B-A2B1-405D16BEC2A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590A121B-82AD-49EC-B9F7-0CD36347A334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
