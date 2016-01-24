@@ -35,8 +35,9 @@ namespace ConsoleResourceOwnerWithUserInfo
             var claims = GetUserClaims(response.AccessToken);
             var updatedTime = claims.FirstOrDefault(x => x.Type == "updated_at").Value;
 
-            var dto = DateTimeOffset.FromUnixTimeSeconds(long.Parse(updatedTime));
-            Console.WriteLine("From Idsrv: {0} - {1} - {2}", dto.DateTime.ToString("s"), dto.DateTime.Kind, updatedTime);
+            var dt = long.Parse(updatedTime).FromEpochTime();
+            //Created as UTC but what's displaying is UTC + Offset
+            Console.WriteLine("From Idsrv: {0} - {1}", dt.ToString("s"), dt.Kind);
         }
 
         public static void GetInfoDirect(string connectionString)
@@ -48,16 +49,13 @@ namespace ConsoleResourceOwnerWithUserInfo
                 if (account != null)
                 {
                     //When fetching the account the first time, the lastUpdated DateTime Kind is reported as "Unspecified"
-                    var dto1 = new DateTimeOffset(account.LastUpdated);
-                    Console.WriteLine("From Local: {0} - {1} - {2}", account.LastUpdated.ToString("s"),
-                        account.LastUpdated.Kind, dto1.ToUnixTimeSeconds());
-                    //Note, ToUnixTimeSeconds() adds the local offset to an unspecified dtk resulting in a double offset
+                    Console.WriteLine("From Local: {0} - {1}", account.LastUpdated.ToString("s"),
+                        account.LastUpdated.Kind);
 
                     /* This can be used to confirm that as soon as Update() is called, the DateTime.Kind property is updated to Utc
                     svc.Update(account); 
-                    var dto2 = new DateTimeOffset(account.LastUpdated);
-                    Console.WriteLine("With Updte: {0} - {1} - {2}", account.LastUpdated.ToString("s"),
-                        account.LastUpdated.Kind, dto2.ToUnixTimeSeconds());
+                    Console.WriteLine("With Updte: {0} - {1}", account.LastUpdated.ToString("s"),
+                        account.LastUpdated.Kind);
                      */
                 }
             }
@@ -74,9 +72,8 @@ namespace ConsoleResourceOwnerWithUserInfo
                 if (account != null)
                 {
                     //When fetching the account the first time, the lastUpdated DateTime Kind is reported as "Unspecified"
-                    var dto1 = new DateTimeOffset(account.LastUpdated);
-                    Console.WriteLine("From FixedAll: {0} - {1} - {2}", account.LastUpdated.ToString("s"),
-                        account.LastUpdated.Kind, dto1.ToUnixTimeSeconds());
+                    Console.WriteLine("From FixedAll: {0} - {1}", account.LastUpdated.ToString("s"),
+                        account.LastUpdated.Kind);
                 }
             }
         }
@@ -92,9 +89,8 @@ namespace ConsoleResourceOwnerWithUserInfo
                 if (account != null)
                 {
                     //When fetching the account the first time, the lastUpdated DateTime Kind is reported as "Unspecified"
-                    var dto1 = new DateTimeOffset(account.LastUpdated);
-                    Console.WriteLine("From FixedAtr: {0} - {1} - {2}", account.LastUpdated.ToString("s"),
-                        account.LastUpdated.Kind, dto1.ToUnixTimeSeconds());
+                    Console.WriteLine("From FixedAtr: {0} - {1}", account.LastUpdated.ToString("s"),
+                        account.LastUpdated.Kind);
                 }
             }
         }
@@ -197,5 +193,11 @@ namespace ConsoleResourceOwnerWithUserInfo
         public const string IdentityTokenValidationEndpoint = BaseAddress + "/connect/identitytokenvalidation";
         public const string TokenRevocationEndpoint = BaseAddress + "/connect/revocation";
         public const string AspNetWebApiSampleApi = "http://localhost:2727/";
+
+        public static DateTime FromEpochTime(this long epochTime)
+        {
+            return new DateTime(1970, 1, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(epochTime);
+        }
+
     }
 }

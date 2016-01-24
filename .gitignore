@@ -133,6 +133,7 @@ publish/
 
 # NuGet Packages Directory
 packages/*
+!.nuget/NuGet.exe
 ## TODO: If the tool you use requires repositories.config
 ## uncomment the next line
 #!packages/repositories.config
@@ -159,7 +160,7 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
-*.pfx
+.pfx
 *.publishsettings
 node_modules/
 
